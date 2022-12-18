@@ -1,40 +1,36 @@
-//variables and storing the data
-   string characterName = "bhubesh";   //now name is stored in the string
-   int characAge; // now here it stored in  the int variable
-   characAge = 18;
-   
-   cout <<"there once a character named as " << characterName << endl;
-   cout << "The Age of the character is " << characAge << endl;
-   
-   //Datatypes 
-   
-  // char grade = 'A'; // wt is char 
-   //string phrase = "bhubesh cyberqode";
-   //int age = 20;
-   //double gpa = 2.4;
-   //bool isMale = true;
-   //cout << age << endl;
-   
-   //getting user input from the user;
-   // store the info / data first
-    //string name;
-    //cout<<"Enter your name : ";
-    //getline(cin,name);
+
+#include <iostream>
+
+using namespace std;
+
+//creating a function
+
+void sayHi (string name , int age ) {
+    cout << "Hello " << name << "your age is " << age << endl;  ;
+}
+
+// return statement;
+double cube (double num) {
+    //return num * num * num;
+    //
+    double result = num * num *num;
+    return result;
+}
+
+int main() 
+{
+    //Using Arrays in c++
+    int arr[] = {1,2,3,4,5,6};
+    cout << arr[1] <<endl;
     
-    //cin >> name; 
-    //cout<<"Your name is " << name << endl;
-    
-    //cout << "you are " << age <<"Years old , Eligible for voting" << endl;
-    
-    //calculator in cpp
-    
-    int num1, num2;
-    cout << "enter the first number :" ;
-    cin>>num1;
-    
-    cout << "enter the second number :" ;
-    cin>>num2;
+    //functions -> collection of code which perform some task with the code , its a container and can be reused
+    // calling the funtion from the sayhi function
+    sayHi("karan" , 20);
     
     
-    cout << num1+num2 << endl;
-    cout << num1*num2 << endl;
+    double answer = cube(3.0);
+    cout << answer << endl;
+    
+    return 0;
+    
+}
