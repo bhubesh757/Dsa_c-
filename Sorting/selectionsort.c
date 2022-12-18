@@ -1,44 +1,53 @@
-#include <stdio.h>
+# include <iostream>
 
-void display(int arr[] , int size){
-    int i;
-    for(i = 0 ; i< size ;i++)
-    {
-        printf("%d",arr[i]);
-    }
-    printf("\n");
-}
+using namespace std;
 
-int main() 
+void selectionSort(int arr[])
 {
-    int array[] = {2,6,1,8,3,11,5};
-    
-    int size = sizeof(array)/sizeof(array[0]);
-    display(array , size);
-    
-    int i , j, minpos ,temp;
-    
-    for(i = 0 ; i< size - 1 ;  i++)
-    {
-        minpos = i;
-        
-        for (j = i+1 ; j < size ;j++) {
-            if(array[j] < array[minpos])
+    for(int i=0; i<4 ; i++) {
+        int min = i;
+        for(int j = j+1 ; j<5 ;j++) {
+            if(arr[j] < arr[min])
             {
-                minpos = j;
+                min = j;
             }
         }
+        if(min != i) {
+            int temp = arr[min];
+            arr[min] = arr[i];
+            arr[i] = temp;
+        }
         
-        //swap the values
-        temp = array[minpos];
-        array[minpos] = array[i] ;
-         array[i] = temp;
+    }
+}
+
+
+int main () {
+    int myarr[5];
+    cout << "enter the intergers : " ;
+    for(int i = 0 ; i<5 ;i++) {
+        cin>>myarr[i] ;
+        
     }
     
-    display(array , size);
+ 
+    
+    cout << "Unsorted Array " ;
+    for(int i = 0 ; i<5 ;i++) {
+        cout<<myarr[i] << " ";
+    }
+    
+    cout << endl;
+    
+       // selection sort algorithm
+    
+    selectionSort(myarr);
+    
+       cout << "sorted Array " ;
+    for(int i = 0 ; i<5 ;i++) {
+        cout<<myarr[i] << " ";
+    }
+    cout << endl;
+    
     return 0;
-    
-    
-    
-    
 }
