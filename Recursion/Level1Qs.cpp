@@ -20,13 +20,13 @@ int main() {
 }
 
 // funcitonal Recursion
-//Reverse an array
+2 )Reverse an array
  
 #include <iostream>
 
 using namespace std;
 
-//sqpping an array using recursion
+//swapping an array using recursion
 
 void f (int i , int arr[] , int n) {
     if(i>=n/2) 
@@ -51,4 +51,28 @@ int main() {
    }
    return 0;
 }
+
+3) find the given string is pallindrome or not using the recursion function;
+#include <iostream>
+#include <string>
+using namespace std;
+
+//sqpping an array using recursion
+
+bool f(int i , string &s) {
+    if( i >= s.size() / 2) 
+    return true;
+    if(s[i] != s[s.size() - i - 1])
+    return false;
+    f(i+1 , s);
+}
+
+
+int main() {
+    string s = "malayalam";
+    cout<< f(0,s);
+    return 0;
+}
+
+
 
