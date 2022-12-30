@@ -74,5 +74,27 @@ int main() {
     return 0;
 }
 
+4) Fibonacci series // finding the n the number in the fibonnaci series
+    #include <iostream>
+#include <string>
+using namespace std;
+
+//finding the n th number of fibonacci series
+
+int f(int n) {
+    if(n<=1) 
+    return n;
+    int last = f(n-1);
+    int slast = f(n-2);
+    return last+slast;
+}
+
+
+
+int main() {
+    cout<<f(6);
+    return 0;
+}
+
 
 
