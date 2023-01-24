@@ -4,34 +4,30 @@ using namespace std;
 
 //counting sort algorithm
 
-void countingSort(int input_arr[] , int s , int r) {
-    // create two arrays which create and store the the sum of the previous array
-    int output_arr[s];
-    int count_arr[r];
-    
-    for(int i = 0; i<r ; i++) {
-        //initialize the array to 0;
-        count_arr[i] = 0;
-    }
-    
-    for(int i =0; i<=s ;i++) {
-        // need to increement the and store the counted values in the output aray
-        count_arr[input_arr[i]]++;
-    }
-    
-    for(int i = 1; i<=r;i++) {
-        count_arr[i] = count_arr[i] + count_arr[i-1];
-    }
-    
-    for(int i = 0; i<s ;i++) {
-        output_arr[--count_arr[input_arr[i]]] = input_arr[i];
-    }
-    
-   for(int i =0; i <0; i++) {
-       input_arr[i] = output_arr[i];
-   }
-    
+void countingSort(int a[] , int n , int r) {
+	int upd_count[s];
+	int count[r];
+
+	for(int i = 0 ; i < r ;i++) {
+		count[i] = 0;
+	}
+
+	for(int i = 0 ; i < n ;i++) { 
+		++count[a[i]];
+	}
+	for(int i = 1 ; i < r ; i++) {
+		count[i] = count[i] + count[i-1];
+	} 
+
+	for(int i = n-1 , i>=0 ; i--) {
+		upd_count[--count[a[i]]] = a[i];
+	}
+	for(int i = 0 ; i < n ; i++) {
+		a[i] = upd_count[i];
+	}
+
 }
+
 
 
 int main()
