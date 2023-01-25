@@ -1,40 +1,51 @@
-#include <iostream>
-
+#include<iostream> 
 using namespace std;
 
-// binary search
-//recursive approach
+//LinearSearch 
 
-int binarySearch(int array[] , int left , int right  , int item) {
-    
-    if(right >= left ) {
-        
-        //finding the mid value first
-        int mid = (left + right) /2 ;
-        
-        // reject the left side if the mid value is greater
-        if(array[mid] == item )
-            return mid+1;
-        if(array[mid] < item) 
-            return binarySearch(array , left , mid+1 , item);
-        else
-            return binarySearch(array , left , mid-1 , item);
-        
-    }
-    else 
-    return -1;
-    
+int BinarySearch (int a[] , int l , int r , int data ) {
+
+	//initialize them
+
+	while(l<r) {
+		int mid = (l+r) / 2;
+		if(data == a[mid]){
+			return mid;
+		}
+		else if (data < a[mid]) {
+			r = mid -1;
+		}
+		else {
+			l = mid +1;
+		}
+	}
+	return -1;
+	
 }
 
-int main() {
+int main () {
+	//here the num is the data to be searched
+	int num;
+	int a[10];
+	int output;
 
-    int array[10] = {5,9,17,23,25,45,59,63,71,89};
-    
-    int item = 45;
-    int position = binarySearch(array , 0 , 10 ,item);
-    if(position == -1) 
-        cout<< "Not found" << endl;
-    else 
-        cout << "We Found the Item " << item <<  " at position " << position;
-  
+	cout<<"Enter the numbers in ascending order" << endl;
+	for(int i = 0 ; i < 10 ; i++) {
+		cin>>a[i];
+	}
+
+	cout<<"Enter the number neeed to search" << endl;
+	cin>> num;
+
+	output = BinarySearch(a , 0 , 9 , num);
+
+	if(output == -1) {
+		cout<<"Elemtent not found"<<endl;
+
+	}
+	else{
+		cout<<"Elemtent  found in the above array"<< output<<endl;
+	}
+
+	return 0;
 }
