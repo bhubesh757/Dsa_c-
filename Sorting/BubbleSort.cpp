@@ -43,3 +43,57 @@ int main() {
 
 	return 0;
 }
+
+
+
+// some changes in the main function with running code
+
+#include <iostream>
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+void bubbleSort (int a[] , int n) {
+	for(int i = n-1; i>= 1 ; i-- ) {
+		int swap = 0;
+		for(int j = 0 ; j <= i-1 ; j++) {
+			if(a[j] > a[j+1]) {
+				int temp = a[j+1] ;
+				a[j+1] = a[j] ;
+				a[j] = temp;
+				swap = 1;
+			}
+		}
+		//why swap int , it checks whether the arra is swaped or not , if sorted , it breaks and comes out of the loop
+		if(swap == 0 ) {
+			break;
+		}
+	}
+}
+
+
+int main() {
+
+	#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+	#endif
+
+	int n;
+	cin>>n;
+
+	int arr[n];
+	for(int i = 0 ; i < n ; i++){
+		cin>>arr[i];
+	}
+
+//calling the fucntion
+	bubbleSort(arr, n);
+	for(int i = 0 ; i< n ; i++) {
+		cout<<arr[i] << " " <<  endl;
+	}
+
+
+	return 0;
+}
